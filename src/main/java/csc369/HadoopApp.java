@@ -32,8 +32,9 @@ public class HadoopApp {
 	    job.setMapperClass(AccessLog.MapperImpl.class);
 	    job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
-		job.setSortComparatorClass((Class<? extends RawComparator>) DescendingIntWritableComparable.class);
-        } else if ("AccessLog2".equalsIgnoreCase(otherArgs[0])) {
+		job.setSortComparatorClass(KeyComparator.class);
+		job.setMapOutputKeyClass(CustomKey.class);
+	} else if ("AccessLog2".equalsIgnoreCase(otherArgs[0])) {
 	    job.setReducerClass(AccessLog2.ReducerImpl.class);
 	    job.setMapperClass(AccessLog2.MapperImpl.class);
 	    job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
