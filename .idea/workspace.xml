@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dd557dc-105a-4fab-a038-3ed615890aa5" name="Changes" comment="Test Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/csc369/StockKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/csc369/URLComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csc369/HadoopApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc369/HadoopApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +58,28 @@
       <option name="project" value="LOCAL" />
       <updated>1675890636685</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test Commit">
+      <created>1675894020146</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675894020146</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Test Commit">
+      <created>1675894063299</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675894063299</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Test Commit">
+      <created>1675894153004</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675894153004</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

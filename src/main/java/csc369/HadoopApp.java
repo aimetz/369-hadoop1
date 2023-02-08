@@ -2,9 +2,8 @@ package csc369;
 
 import java.io.IOException;
 
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.*;
+
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
@@ -33,7 +32,7 @@ public class HadoopApp {
 	    job.setMapperClass(AccessLog.MapperImpl.class);
 	    job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
-		job.setSortComparatorClass(LongWritable.DecreasingComparator.class);
+		job.setSortComparatorClass((Class<? extends RawComparator>) DescendingIntWritableComparable.class);
         } else if ("AccessLog2".equalsIgnoreCase(otherArgs[0])) {
 	    job.setReducerClass(AccessLog2.ReducerImpl.class);
 	    job.setMapperClass(AccessLog2.MapperImpl.class);
@@ -51,3 +50,4 @@ public class HadoopApp {
     }
 
 }
+
