@@ -21,7 +21,7 @@ public class CustomKey implements WritableComparable<CustomKey> {
     }
     @Override
     public void write(DataOutput out) throws IOException {
-//        out.write(ip);
+        out.write(ip.getBytes());
         out.writeInt(count);
 
     }

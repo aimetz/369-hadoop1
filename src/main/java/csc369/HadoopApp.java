@@ -2,8 +2,6 @@ package csc369;
 
 import java.io.IOException;
 
-import org.apache.hadoop.io.*;
-
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
@@ -35,10 +33,10 @@ public class HadoopApp {
 		job.setSortComparatorClass(KeyComparator.class);
 		job.setMapOutputKeyClass(CustomKey.class);
 	} else if ("AccessLog2".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(AccessLog2.ReducerImpl.class);
-	    job.setMapperClass(AccessLog2.MapperImpl.class);
-	    job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
+	    job.setReducerClass(AccessLog3.ReducerImpl.class);
+	    job.setMapperClass(AccessLog3.MapperImpl.class);
+	    job.setOutputKeyClass(AccessLog3.OUTPUT_KEY_CLASS);
+	    job.setOutputValueClass(AccessLog3.OUTPUT_VALUE_CLASS);
 	} else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
 	    System.exit(-1);

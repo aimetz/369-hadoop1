@@ -12,33 +12,36 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class AccessLog2 {
 
-    public static final Class OUTPUT_KEY_CLASS = LongWritable.class;
-    public static final Class OUTPUT_VALUE_CLASS = Text.class;
+    public static final Class OUTPUT_KEY_CLASS = Text.class;
+    public static final Class OUTPUT_VALUE_CLASS = IntWritable.class;
 
-    public static class MapperImpl extends Mapper<LongWritable, Text, LongWritable, Text> {
+    public static class MapperImpl extends Mapper<LongWritable, Text, Text, IntWritable> {
+        private final IntWritable one = new IntWritable(1);
 
         @Override
-	protected void map(LongWritable key, Text value,
-			   Context context) throws IOException, InterruptedException {
-	    String[] sa = value.toString().split("\t");
-	    Text hostname = new Text();
-            hostname.set(sa[0]);
-            LongWritable count = new LongWritable(Long.parseLong(sa[1]));
-	    context.write(count, hostname);
+        protected void map(LongWritable key, Text value,
+                           Context context) throws IOException, InterruptedException {
+            String[] sa = value.toString().split(" ");
+            Text hostname = new Text();
+            hostname.set(sa[5]);
+            context.write(hostname, one);
         }
     }
 
-    
-    public static class ReducerImpl extends Reducer<LongWritable, Text, Text, LongWritable> {
-	
+    public static class ReducerImpl extends Reducer<Text, IntWritable, Text, IntWritable> {
+        private IntWritable result = new IntWritable();
+
         @Override
-	protected void reduce(LongWritable count, Iterable<Text> hostnames,
-			      Context context) throws IOException, InterruptedException {
-            
-            Iterator<Text> itr = hostnames.iterator();
+        protected void reduce(Text hostname, Iterable<IntWritable> intOne,
+                              Context context) throws IOException, InterruptedException {
+            int sum = 0;
+            Iterator<IntWritable> itr = intOne.iterator();
+
             while (itr.hasNext()){
-                context.write(itr.next(), count);
+                sum  += itr.next().get();
             }
+            result.set(sum);
+            context.write(hostname, result);
         }
     }
 

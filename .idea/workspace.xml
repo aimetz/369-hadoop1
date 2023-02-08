@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dd557dc-105a-4fab-a038-3ed615890aa5" name="Changes" comment="Test Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/csc369/CustomKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/csc369/KeyComparator.java" afterDir="false" />
+    <list default="true" id="2dd557dc-105a-4fab-a038-3ed615890aa5" name="Changes" comment="Add sort">
+      <change afterPath="$PROJECT_DIR$/src/main/java/csc369/AccessLog3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csc369/DescendingIntWritableComparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc369/DescendingIntWritableComparable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csc369/AccessLog2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc369/AccessLog2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csc369/CustomKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc369/CustomKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csc369/HadoopApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc369/HadoopApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,11 +89,26 @@
       <option name="project" value="LOCAL" />
       <updated>1675894620081</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add sort">
+      <created>1675896650093</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675896650093</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add sort">
+      <created>1675896740752</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675896740752</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Commit" />
+    <MESSAGE value="Add sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sort" />
   </component>
 </project>
