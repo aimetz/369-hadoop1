@@ -13,54 +13,60 @@ import org.apache.hadoop.util.GenericOptionsParser;
 public class HadoopApp {
 
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
-        Configuration conf = new Configuration();
-        Job job = new Job(conf, "Hadoop example");
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+		Configuration conf = new Configuration();
+		Job job = new Job(conf, "Hadoop example");
+		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
-	if (otherArgs.length < 3) {
-	    System.out.println("Expected parameters: <job class> <input dir> <output dir>");
-	    System.exit(-1);
-	} else if ("AccessLog".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(AccessLog.ReducerImpl.class);
-	    job.setMapperClass(AccessLog.MapperImpl.class);
-	    job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
-	} else if ("AccessLog2".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(AccessLog2.ReducerImpl.class);
-	    job.setMapperClass(AccessLog2.MapperImpl.class);
-	    job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
-	} else if ("AccessLog3".equalsIgnoreCase(otherArgs[0])) {
-		job.setReducerClass(AccessLog3.ReducerImpl.class);
-		job.setMapperClass(AccessLog3.MapperImpl.class);
-		job.setOutputKeyClass(AccessLog3.OUTPUT_KEY_CLASS);
-		job.setOutputValueClass(AccessLog3.OUTPUT_VALUE_CLASS);
-	} else if ("AccessLog4".equalsIgnoreCase(otherArgs[0])) {
-		job.setReducerClass(AccessLog4.ReducerImpl.class);
-		job.setMapperClass(AccessLog4.MapperImpl.class);
-		job.setOutputKeyClass(AccessLog4.OUTPUT_KEY_CLASS);
-		job.setOutputValueClass(AccessLog4.OUTPUT_VALUE_CLASS);
-	} else if ("AccessLog5".equalsIgnoreCase(otherArgs[0])) {
-		job.setReducerClass(AccessLog5.ReducerImpl.class);
-		job.setMapperClass(AccessLog5.MapperImpl.class);
-		job.setOutputKeyClass(AccessLog5.OUTPUT_KEY_CLASS);
-		job.setOutputValueClass(AccessLog5.OUTPUT_VALUE_CLASS);
-	} else if ("AccessLog6".equalsIgnoreCase(otherArgs[0])) {
-		job.setReducerClass(AccessLog6.ReducerImpl.class);
-		job.setMapperClass(AccessLog6.MapperImpl.class);
-		job.setOutputKeyClass(AccessLog6.OUTPUT_KEY_CLASS);
-		job.setOutputValueClass(AccessLog6.OUTPUT_VALUE_CLASS);
+		if (otherArgs.length < 3) {
+			System.out.println("Expected parameters: <job class> <input dir> <output dir>");
+			System.exit(-1);
+		} else if ("AccessLog1".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog.ReducerImpl.class);
+			job.setMapperClass(AccessLog.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
+		} else if ("AccessLog2".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog2.ReducerImpl.class);
+			job.setMapperClass(AccessLog2.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
+		} else if ("AccessLog3".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog3.ReducerImpl.class);
+			job.setMapperClass(AccessLog3.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog3.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog3.OUTPUT_VALUE_CLASS);
+		} else if ("AccessLog4".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog4.ReducerImpl.class);
+			job.setMapperClass(AccessLog4.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog4.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog4.OUTPUT_VALUE_CLASS);
+		} else if ("AccessLog5".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog5.ReducerImpl.class);
+			job.setMapperClass(AccessLog5.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog5.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog5.OUTPUT_VALUE_CLASS);
+		} else if ("AccessLog6".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog6.ReducerImpl.class);
+			job.setMapperClass(AccessLog6.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog6.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog6.OUTPUT_VALUE_CLASS);
+		} else {
+			System.out.println("Unrecognized job: " + otherArgs[0]);
+			System.exit(-1);
+		}
+
+		FileInputFormat.addInputPath(job, new Path(otherArgs[1]));
+		FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]));
+
+		job.waitForCompletion(true);
+
+		if ("AccessLog1".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(AccessLog8.ReducerImpl.class);
+			job.setMapperClass(AccessLog8.MapperImpl.class);
+			job.setOutputKeyClass(AccessLog8.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(AccessLog8.OUTPUT_VALUE_CLASS);
+		}
 	}
-	else {
-	    System.out.println("Unrecognized job: " + otherArgs[0]);
-	    System.exit(-1);
-	}
-
-        FileInputFormat.addInputPath(job, new Path(otherArgs[1]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]));
-
-        System.exit(job.waitForCompletion(true) ? 0: 1);
-    }
 
 }
 
