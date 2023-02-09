@@ -18,10 +18,10 @@ public class AccessLog8 {
         @Override
 	protected void map(LongWritable key, Text value,
 			   Context context) throws IOException, InterruptedException {
-	    String[] sa = value.toString().split("\t");
+	    String[] sa = value.toString().split(" ");
 	    Text hostname = new Text();
-            hostname.set(sa[0]);
-            LongWritable count = new LongWritable(Long.parseLong(sa[1]));
+        hostname.set(sa[0]);
+        LongWritable count = new LongWritable(Long.parseLong(sa[1]));
 	    context.write(count, hostname);
         }
     }

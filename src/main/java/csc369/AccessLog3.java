@@ -22,10 +22,13 @@ public class AccessLog3 {
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
-            Text hostname = new Text();
-            hostname.set(sa[0]);
-            bytes.set(Integer.parseInt(sa[9]));
-            context.write(hostname, bytes);
+            String host = "64.242.88.10";
+            if (sa[0].equalsIgnoreCase(host)) {
+                Text hostname = new Text();
+                hostname.set(sa[0]);
+                bytes.set(Integer.parseInt(sa[9]));
+                context.write(hostname, bytes);
+            }
         }
     }
 
