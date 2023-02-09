@@ -67,7 +67,7 @@ public class HadoopApp {
 			Configuration conf2 = new Configuration();
 			Job sortValues = new Job(conf2, "Sort Values");
 			FileInputFormat.addInputPath(sortValues, new Path(otherArgs[2]));
-			FileOutputFormat.setOutputPath(sortValues, new Path(otherArgs[2]+"b"));
+			FileOutputFormat.setOutputPath(sortValues, new Path("b"+otherArgs[2]));
 
 			sortValues.setReducerClass(AccessLog8.ReducerImpl.class);
 			sortValues.setMapperClass(AccessLog8.MapperImpl.class);
