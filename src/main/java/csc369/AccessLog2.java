@@ -22,8 +22,8 @@ public class AccessLog2 {
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
-            IntWritable hostname = new IntWritable();
-            hostname.set(sa[5]);
+            Text hostname = new Text();
+            hostname.set(sa[6]);
             context.write(hostname, one);
         }
     }
