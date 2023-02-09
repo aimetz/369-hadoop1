@@ -61,10 +61,9 @@ public class HadoopApp {
 
 		int complete = job.waitForCompletion(true) ? 0 : 1;
 
-		if (complete == 1 &&
-				(otherArgs[0].contains("1") ||
+		if (otherArgs[0].contains("1") ||
 						otherArgs[0].contains("4") ||
-						otherArgs[0].contains("6"))) {
+						otherArgs[0].contains("6")) {
 			Configuration conf2 = new Configuration();
 			Job sortValues = new Job(conf2, "Sort Values");
 			FileInputFormat.addInputPath(sortValues, new Path(otherArgs[2]));
