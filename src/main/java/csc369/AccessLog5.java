@@ -19,15 +19,15 @@ public class AccessLog5 {
 
     public static class MapperImpl extends Mapper<LongWritable, Text, Text, IntWritable> {
         private IntWritable one = new IntWritable(1);
-        private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[dd/MMM/yyyy:HH:mm:ss");
-        private LocalDate dateTime;// = LocalDate.parse(dateInString, formatter);
+//        private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[dd/MMM/yyyy:HH:mm:ss");
+//        private LocalDate dateTime;// = LocalDate.parse(dateInString, formatter);
         @Override
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
             Text hostname = new Text();
-            dateTime = LocalDate.parse(sa[3], formatter);
-            hostname.set(String.valueOf(dateTime.getYear()));
+//            dateTime = LocalDate.parse(sa[3], formatter);
+            hostname.set(sa[3].substring(4, 12));
             context.write(hostname, one);
         }
     }
