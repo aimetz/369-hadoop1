@@ -21,9 +21,12 @@ public class AccessLog4 {
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
-            Text hostname = new Text();
-            hostname.set(sa[6]+sa[0]);
-            context.write(hostname, one);
+            String url = "/twiki/bin/view/TWiki/WikiSyntax";
+            if (sa[6].equalsIgnoreCase(url)) {
+                Text hostname = new Text();
+                hostname.set(sa[0]);
+                context.write(hostname, one);
+            }
         }
     }
 
