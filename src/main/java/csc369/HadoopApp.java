@@ -20,11 +20,6 @@ public class HadoopApp {
 	if (otherArgs.length < 3) {
 	    System.out.println("Expected parameters: <job class> <input dir> <output dir>");
 	    System.exit(-1);
-	} else if ("WordCount".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(WordCount.ReducerImpl.class);
-	    job.setMapperClass(WordCount.MapperImpl.class);
-	    job.setOutputKeyClass(WordCount.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(WordCount.OUTPUT_VALUE_CLASS);
 	} else if ("AccessLog".equalsIgnoreCase(otherArgs[0])) {
 	    job.setReducerClass(AccessLog.ReducerImpl.class);
 	    job.setMapperClass(AccessLog.MapperImpl.class);
@@ -35,7 +30,13 @@ public class HadoopApp {
 	    job.setMapperClass(AccessLog2.MapperImpl.class);
 	    job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
-	} else {
+	} else if ("AccessLog3".equalsIgnoreCase(otherArgs[0])) {
+		job.setReducerClass(AccessLog2.ReducerImpl.class);
+		job.setMapperClass(AccessLog2.MapperImpl.class);
+		job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
+	}
+	else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
 	    System.exit(-1);
 	}
