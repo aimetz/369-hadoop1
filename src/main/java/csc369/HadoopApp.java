@@ -59,13 +59,16 @@ public class HadoopApp {
 		FileInputFormat.addInputPath(job, new Path(otherArgs[1]));
 		FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]));
 
-		job.waitForCompletion(true);
+		int complete = job.waitForCompletion(true) ? 0 : 1;
 
-		if (otherArgs[0].contains("1") || otherArgs[0].contains("4")) {
+		if (complete == 1 &&
+				(otherArgs[0].contains("1") ||
+						otherArgs[0].contains("4") ||
+						otherArgs[0].contains("6"))) {
 			Configuration conf2 = new Configuration();
 			Job sortValues = new Job(conf2, "Sort Values");
-			FileInputFormat.addInputPath(job, new Path(otherArgs[2]));
-			FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]+"b"));
+			FileInputFormat.addInputPath(sortValues, new Path(otherArgs[2]));
+			FileOutputFormat.setOutputPath(sortValues, new Path(otherArgs[2]+"b"));
 
 			sortValues.setReducerClass(AccessLog8.ReducerImpl.class);
 			sortValues.setMapperClass(AccessLog8.MapperImpl.class);
@@ -74,6 +77,7 @@ public class HadoopApp {
 
 			System.exit(sortValues.waitForCompletion(true) ? 0 : 1);
 		}
+		System.exit(complete);
 	}
 
 }
