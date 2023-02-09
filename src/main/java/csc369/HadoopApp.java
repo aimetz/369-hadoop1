@@ -61,13 +61,14 @@ public class HadoopApp {
 
 			job.waitForCompletion(true);
 
+		Job sortValues = new Job(conf, "Sort Values");
 		if ("AccessLog1".equalsIgnoreCase(otherArgs[0])) {
-			job.setReducerClass(AccessLog.ReducerImpl.class);
-			job.setMapperClass(AccessLog.MapperImpl.class);
-			job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
-			job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
+			sortValues.setReducerClass(AccessLog8.ReducerImpl.class);
+			sortValues.setMapperClass(AccessLog8.MapperImpl.class);
+			sortValues.setOutputKeyClass(AccessLog8.OUTPUT_KEY_CLASS);
+			sortValues.setOutputValueClass(AccessLog8.OUTPUT_VALUE_CLASS);
 		}
-		System.exit(job.waitForCompletion(true) ? 0: 1);
+		System.exit(sortValues.waitForCompletion(true) ? 0: 1);
 	}
 
 }
