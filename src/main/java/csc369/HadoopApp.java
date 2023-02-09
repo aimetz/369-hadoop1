@@ -31,10 +31,10 @@ public class HadoopApp {
 	    job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
 	} else if ("AccessLog3".equalsIgnoreCase(otherArgs[0])) {
-		job.setReducerClass(AccessLog2.ReducerImpl.class);
-		job.setMapperClass(AccessLog2.MapperImpl.class);
-		job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
-		job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
+		job.setReducerClass(AccessLog3.ReducerImpl.class);
+		job.setMapperClass(AccessLog3.MapperImpl.class);
+		job.setOutputKeyClass(AccessLog3.OUTPUT_KEY_CLASS);
+		job.setOutputValueClass(AccessLog3.OUTPUT_VALUE_CLASS);
 	}
 	else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
