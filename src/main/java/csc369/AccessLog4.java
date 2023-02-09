@@ -15,16 +15,15 @@ public class AccessLog4 {
     public static final Class OUTPUT_VALUE_CLASS = IntWritable.class;
 
     public static class MapperImpl extends Mapper<LongWritable, Text, Text, IntWritable> {
-        private IntWritable bytes = new IntWritable();
+        private IntWritable one = new IntWritable(1);
 
         @Override
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
             Text hostname = new Text();
-            hostname.set(sa[0]);
-            bytes.set(Integer.parseInt(sa[9]));
-            context.write(hostname, bytes);
+            hostname.set(sa[6]+sa[0]);
+            context.write(hostname, one);
         }
     }
 

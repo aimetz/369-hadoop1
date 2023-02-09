@@ -8,23 +8,22 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 public class AccessLog6 {
+
 
     public static final Class OUTPUT_KEY_CLASS = Text.class;
     public static final Class OUTPUT_VALUE_CLASS = IntWritable.class;
 
     public static class MapperImpl extends Mapper<LongWritable, Text, Text, IntWritable> {
         private IntWritable bytes = new IntWritable();
-        private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[dd/MMM/yyyy:HH:mm:ss");
-        private LocalDate dateTime;// = LocalDate.parse(dateInString, formatter);
+
         @Override
         protected void map(LongWritable key, Text value,
                            Context context) throws IOException, InterruptedException {
             String[] sa = value.toString().split(" ");
             Text hostname = new Text();
-            hostname.set(sa[0]);
+            hostname.set(sa[3].substring(1, 12));
             bytes.set(Integer.parseInt(sa[9]));
             context.write(hostname, bytes);
         }
@@ -48,3 +47,4 @@ public class AccessLog6 {
     }
 
 }
+
