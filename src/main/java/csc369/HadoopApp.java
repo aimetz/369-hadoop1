@@ -61,21 +61,21 @@ public class HadoopApp {
 
 		int complete = job.waitForCompletion(true) ? 0 : 1;
 
-		if (otherArgs[0].contains("1") ||
-						otherArgs[0].contains("4") ||
-						otherArgs[0].contains("6")) {
-			Configuration conf2 = new Configuration();
-			Job sortValues = new Job(conf2, "Sort Values");
-			FileInputFormat.addInputPath(sortValues, new Path(otherArgs[2]));
-			FileOutputFormat.setOutputPath(sortValues, new Path("b"+otherArgs[2]));
-
-			sortValues.setReducerClass(AccessLog8.ReducerImpl.class);
-			sortValues.setMapperClass(AccessLog8.MapperImpl.class);
-			sortValues.setOutputKeyClass(AccessLog8.OUTPUT_KEY_CLASS);
-			sortValues.setOutputValueClass(AccessLog8.OUTPUT_VALUE_CLASS);
-
-			System.exit(sortValues.waitForCompletion(true) ? 0 : 1);
-		}
+//		if (otherArgs[0].contains("1") ||
+//						otherArgs[0].contains("4") ||
+//						otherArgs[0].contains("6")) {
+//			Configuration conf2 = new Configuration();
+//			Job sortValues = new Job(conf2, "Sort Values");
+//			FileInputFormat.addInputPath(sortValues, new Path(otherArgs[2]));
+//			FileOutputFormat.setOutputPath(sortValues, new Path("b"+otherArgs[2]));
+//
+//			sortValues.setReducerClass(AccessLog8.ReducerImpl.class);
+//			sortValues.setMapperClass(AccessLog8.MapperImpl.class);
+//			sortValues.setOutputKeyClass(AccessLog8.OUTPUT_KEY_CLASS);
+//			sortValues.setOutputValueClass(AccessLog8.OUTPUT_VALUE_CLASS);
+//
+//			System.exit(sortValues.waitForCompletion(true) ? 0 : 1);
+//		}
 		System.exit(complete);
 	}
 
