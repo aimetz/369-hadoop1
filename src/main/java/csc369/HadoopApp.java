@@ -59,13 +59,14 @@ public class HadoopApp {
 		FileInputFormat.addInputPath(job, new Path(otherArgs[1]));
 		FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]));
 
-		int complete = job.waitForCompletion(true) ? 0 : 1;
+//		int complete =
+		job.waitForCompletion(true);// ? 0 : 1;
 
-		if (otherArgs[0].contains("1") ||
-						otherArgs[0].contains("4") ||
-						otherArgs[0].contains("6")) {
+//		if (otherArgs[0].contains("1") ||
+//						otherArgs[0].contains("4") ||
+//						otherArgs[0].contains("6")) {
 			Configuration conf2 = new Configuration();
-			Job sortValues = new Job(conf2, "Sort Values");
+			Job sortValues = new Job(conf2, "Hadoop example");
 			FileInputFormat.addInputPath(sortValues, new Path(otherArgs[2]));
 			FileOutputFormat.setOutputPath(sortValues, new Path("b"+otherArgs[2]));
 
@@ -75,8 +76,8 @@ public class HadoopApp {
 			sortValues.setOutputValueClass(AccessLog8.OUTPUT_VALUE_CLASS);
 
 			System.exit(sortValues.waitForCompletion(true) ? 0 : 1);
-		}
-		System.exit(complete);
+//		}
+//		System.exit(complete);
 	}
 
 }
