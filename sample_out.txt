@@ -1,0 +1,50 @@
+!./gradlew run --args="AccessLog1 input_access_log/ out_wc/"
+
+/cgi-bin/mailgraph.cgi/mailgraph_0.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_0_err.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_1.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_1_err.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_2.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_2_err.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_3.png	16
+/cgi-bin/mailgraph.cgi/mailgraph_3_err.png	16
+/cgi-bin/mailgraph2.cgi	16
+/clients.html	4
+/dccstats/	2
+
+
+
+!./gradlew run --args="AccessLog2 input_access_log/ out_wc/"
+
+200	1272
+302	6
+401	123
+404	5
+
+
+
+!./gradlew run --args="AccessLog3 input_access_log/ out_wc/"
+
+64.242.88.10	5745035
+
+
+
+!./gradlew run --args="AccessLog4 input_access_log/ out_wc/"
+
+64.242.88.10	1
+
+
+
+!./gradlew run --args="AccessLog5 input_access_log/ out_wc/"
+
+Mar/2004	1406
+
+
+!./gradlew run --args="AccessLog6 input_access_log/ out_wc/"
+
+07/Mar/2004	2427368
+08/Mar/2004	4617302
+09/Mar/2004	978411
+10/Mar/2004	1357604
+11/Mar/2004	1265093
+12/Mar/2004	287227
