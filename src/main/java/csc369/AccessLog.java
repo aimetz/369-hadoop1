@@ -23,7 +23,7 @@ public class AccessLog {
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
 	    Text hostname = new Text();
-	    hostname.set(sa[0]);
+	    hostname.set(sa[6]);
 	    context.write(hostname, one);
         }
     }
