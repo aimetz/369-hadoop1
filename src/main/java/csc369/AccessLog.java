@@ -28,7 +28,7 @@ public class AccessLog {
         }
     }
 
-    public static class ReducerImpl extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public static class ReducerImpl extends Reducer<Text, IntWritable, IntWritable, Text> {
 	private IntWritable result = new IntWritable();
     
         @Override
@@ -41,7 +41,7 @@ public class AccessLog {
                 sum  += itr.next().get();
             }
             result.set(sum);
-            context.write(hostname, result);
+            context.write(result, hostname);
        }
     }
 
